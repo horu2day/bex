@@ -1,0 +1,58 @@
+[
+  {
+    "postId": "p02",
+    "topic": "dwg-to-3d",
+    "publishedAt": "2026-11-03T03:16:09.893Z",
+    "results": [
+      {
+        "platform": "threads",
+        "ok": true,
+        "url": "https://www.threads.com/"
+      },
+      {
+        "platform": "linkedin",
+        "ok": true,
+        "url": "https://www.linkedin.com/feed/"
+      },
+      {
+        "platform": "x",
+        "ok": true,
+        "url": "https://x.com/home"
+      }
+    ]
+  },
+  {
+    "postId": "p01",
+    "topic": "vector-capture",
+    "publishedAt": "2026-11-02T15:18:01.277Z",
+    "results": [
+      {
+        "platform": "x",
+        "ok": true,
+        "url": "https://x.com/home"
+      }
+    ]
+  },
+  {
+    "postId": "p01",
+    "topic": "vector-capture",
+    "publishedAt": "2026-11-02T15:17:10.840Z",
+    "results": [
+      {
+        "platform": "threads",
+        "ok": true,
+        "url": "https://www.threads.com/"
+      },
+      {
+        "platform": "linkedin",
+        "ok": true,
+        "url": "https://www.linkedin.com/feed/"
+      },
+      {
+        "platform": "x",
+        "ok": false,
+        "error": "page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"tweetButtonInline\"], [data-testid=\"tweetButton\"]')\u001b[22m\n\u001b[2m    - locator resolved to <button disabled role=\"button\" tabindex=\"-1\" type=\"button\" aria-disabled=\"true\" data-testid=\"tweetButtonInline\" class=\"css-g5y9jx r-sdzlij r-1phboty r-rs99b7 r-lrvibr r-2yi16 r-1qi8awa r-3pj75a r-o7ynqc r-6416eg r-icoktb r-1ny4l3l\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    19 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not enabled\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+      }
+    ]
+  }
+]

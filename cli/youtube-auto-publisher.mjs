@@ -21,6 +21,22 @@ const TARGET_EMAIL = 'horu2day@gmail.com'
 
 fs.mkdirSync(DATA_DIR, { recursive: true })
 
+// Auto-unpack cloud auth bundle if running from GitHub clone in Cloud
+const CLOUD_BUNDLE_PATH = path.resolve(DATA_DIR, 'bex-cloud-bundle.json')
+if (fs.existsSync(CLOUD_BUNDLE_PATH)) {
+  try {
+    const bundle = JSON.parse(fs.readFileSync(CLOUD_BUNDLE_PATH, 'utf8'))
+    const envTarget = path.resolve(ROOT, '.env')
+    if (bundle.envBase64 && !fs.existsSync(envTarget)) {
+      fs.writeFileSync(envTarget, Buffer.from(bundle.envBase64, 'base64').toString('utf8'), 'utf8')
+    }
+    const ssTarget = path.resolve(DATA_DIR, 'youtube-studio-storage-state.json')
+    if (bundle.ytStorageStateBase64 && !fs.existsSync(ssTarget)) {
+      fs.writeFileSync(ssTarget, Buffer.from(bundle.ytStorageStateBase64, 'base64').toString('utf8'), 'utf8')
+    }
+  } catch {}
+}
+
 const args = process.argv.slice(2)
 const hasFlag = f => args.includes(f)
 const getArg = (f, def) => {
@@ -35,7 +51,18 @@ function loadEpisodeMeta(ep = 'ep03') {
   if (!fs.existsSync(metaPath)) {
     throw new Error(`Metadata not found at ${metaPath}.`)
   }
-  return JSON.parse(fs.readFileSync(metaPath, 'utf8'))
+  const meta = JSON.parse(fs.readFileSync(metaPath, 'utf8'))
+  if (meta.videoFile && !fs.existsSync(meta.videoFile)) {
+    const base = path.basename(String(meta.videoFile).replace(/\\/g, '/'))
+    const localCand = path.join(YT_DIR, base)
+    if (fs.existsSync(localCand)) meta.videoFile = localCand
+  }
+  if (meta.thumbnailFile && !fs.existsSync(meta.thumbnailFile)) {
+    const base = path.basename(String(meta.thumbnailFile).replace(/\\/g, '/'))
+    const localCand = path.join(YT_DIR, base)
+    if (fs.existsSync(localCand)) meta.thumbnailFile = localCand
+  }
+  return meta
 }
 
 function getStatus() {
@@ -175,19 +202,33 @@ async function runBrowserStudioUpload(ep = 'ep03', visibility = 'public') {
   }
   fs.mkdirSync(PROFILE_DIR, { recursive: true })
   const debugPort = 9334
-  console.log(`[BEX YouTube Studio Uploader] Launching Chrome on WinSta0\\Default (port ${debugPort}) for ${TARGET_EMAIL}...`)
-  launchChromeOnDefaultDesktop(PROFILE_DIR, debugPort, 'https://studio.youtube.com')
-
   let browser = null
-  for (let i = 0; i < 30; i++) {
-    await new Promise(r => setTimeout(r, 700))
-    try {
-      browser = await chromium.connectOverCDP(`http://127.0.0.1:${debugPort}`)
-      break
-    } catch {}
+  const storageStatePath = path.resolve(DATA_DIR, 'youtube-studio-storage-state.json')
+
+  if (process.platform === 'win32') {
+    console.log(`[BEX YouTube Studio Uploader] Launching Chrome on WinSta0\\Default (port ${debugPort}) for ${TARGET_EMAIL}...`)
+    launchChromeOnDefaultDesktop(PROFILE_DIR, debugPort, 'https://studio.youtube.com')
+
+    for (let i = 0; i < 30; i++) {
+      await new Promise(r => setTimeout(r, 700))
+      try {
+        browser = await chromium.connectOverCDP(`http://127.0.0.1:${debugPort}`)
+        break
+      } catch {}
+    }
+  } else if (fs.existsSync(storageStatePath)) {
+    console.log(`[BEX Cloud YouTube Uploader] Launching headless Chromium with storageState (${storageStatePath})...`)
+    browser = await chromium.launch({
+      headless: true,
+      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-blink-features=AutomationControlled'],
+    })
+    await browser.newContext({
+      storageState: storageStatePath,
+      userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    })
   }
   if (!browser) {
-    throw new Error(`Failed to connect over CDP to port ${debugPort}`)
+    throw new Error(`Failed to connect over CDP to port ${debugPort} or launch cloud browser`)
   }
 
   try {
@@ -511,7 +552,7 @@ async function runOptimizePublishedVideos() {
 function pickNextUnpublishedEpisode() {
   const st = getStatus()
   const publishedIds = new Set((st.publishHistory || []).map(p => p.episodeId))
-  const priorityOrder = ['short01', 'ep06', 'short02', 'ep07', 'short03', 'ep08', 'ep01', 'ep02', 'ep05', 'ep09', 'ep04']
+  const priorityOrder = ['short04', 'ep10', 'short01', 'ep06', 'short02', 'ep07', 'short03', 'ep08', 'ep01', 'ep02', 'ep05', 'ep09', 'ep04']
   for (const epId of priorityOrder) {
     const found = st.producedEpisodes.find(e => e.episodeId === epId && e.videoFileExists)
     if (found && !publishedIds.has(epId)) return epId

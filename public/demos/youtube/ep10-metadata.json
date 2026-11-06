@@ -1,0 +1,22 @@
+{
+  "episodeId": "ep10",
+  "isShort": false,
+  "title": "프롬프트 치면 실시간 3D 무기가 생성되는 웹 대전 게임 [프롬프트 아레나 · BLAZE FORGE]",
+  "description": "정해진 무기 프리셋 없이 상상하는 모든 무기·방어구·마법·과학 병기를 프롬프트로 실시간 연성해 싸우는 1:1 웹 3D 멀티플레이 대전 게임 [프롬프트 아레나 · BLAZE FORGE] 공식 시연 영상입니다.\n\n▶ 주요 대결 장면\n00:00 실시간 프롬프트 3D 무기 연성 시스템\n00:09 초고압 레일건 vs 45도 플라즈마 거울 방패 (궤적 전반사)\n00:20 심연의 화염 운석 낙하 vs 대기권 요격 미사일 + 액체질소 돔\n00:32 댓글 프롬프트 챌린지 안내\n\n💬 여러분이 생각하는 \"절대 막을 수 없는 최강의 무기 프롬프트\"를 댓글로 남겨주세요!\n\n#프롬프트아레나 #BlazeForge #PromptWars #웹3D게임 #AI게임 #인디게임 #ThreeJS",
+  "tags": [
+    "프롬프트 아레나",
+    "Blaze Forge",
+    "Prompt Arena 3D",
+    "PromptWars",
+    "AI 게임",
+    "웹 3D 게임",
+    "프롬프트 게임",
+    "인디게임 개발",
+    "Three.js 게임",
+    "실시간 멀티플레이 게임"
+  ],
+  "durationSeconds": 42,
+  "durationFormatted": "00:42",
+  "videoFile": "c:\\MYCLAUDE_PROJECT\\modelerbase\\public\\demos\\youtube\\blaze-forge-promo.mp4",
+  "thumbnailFile": "c:\\MYCLAUDE_PROJECT\\modelerbase\\public\\demos\\youtube\\blaze-forge-promo-thumb.png"
+}

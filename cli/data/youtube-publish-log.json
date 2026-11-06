@@ -1,0 +1,92 @@
+[
+  {
+    "episodeId": "ep08",
+    "title": "20m 대형 지하 토목 맨홀·전력구 2D CAD 단면도(A-A~J-J) → 3D BIM 구조물 일괄 자동 합성 #4",
+    "account": "horu2day@gmail.com",
+    "mode": "browser-studio",
+    "youtubeUrl": "https://youtu.be/2LnS1_ybfuQ",
+    "visibility": "public",
+    "publishedAt": "2026-11-05T01:00:43.231Z"
+  },
+  {
+    "episodeId": "ep07",
+    "title": "단순 돌출로는 못 만드는 이중 테이퍼 하우징, 2D CAD 도면에서 3D 로프트 자동 생성 원리 #3",
+    "account": "horu2day@gmail.com",
+    "mode": "browser-studio",
+    "youtubeUrl": "https://youtu.be/TbvGgZG_n-0",
+    "visibility": "public",
+    "publishedAt": "2026-11-04T01:00:43.529Z"
+  },
+  {
+    "episodeId": "ep06",
+    "title": "복잡한 기계 브래킷 2D CAD 도면, 클릭 한 번에 3D 솔리드 복원! — 카운터보어·U슬롯·사선 리브 자동 합성 #2",
+    "account": "horu2day@gmail.com",
+    "mode": "browser-studio",
+    "youtubeUrl": "https://youtu.be/dL9vFgui8CA",
+    "visibility": "public",
+    "publishedAt": "2026-11-03T01:00:44.423Z"
+  },
+  {
+    "episodeId": "short03",
+    "title": "3D BIM 자르면 2D CAD 치수가 1초 만에 자동 기입! (치수선 충돌 0건) #Shorts",
+    "account": "horu2day@gmail.com",
+    "mode": "browser-studio",
+    "youtubeUrl": "https://youtube.com/shorts/r5Ct_kddy8w",
+    "visibility": "public",
+    "publishedAt": "2026-11-02T15:08:13.180Z"
+  },
+  {
+    "episodeId": "short02",
+    "title": "아직도 CAD 검은 화면 캡처해서 워드·보고서에 넣으세요? 1초 칼선 벡터 변환! #Shorts",
+    "account": "horu2day@gmail.com",
+    "mode": "browser-studio",
+    "youtubeUrl": "https://youtube.com/shorts/Xr1sC9ZV_6M",
+    "visibility": "public",
+    "publishedAt": "2026-11-02T15:07:37.457Z"
+  },
+  {
+    "episodeId": "short01",
+    "title": "2D CAD 도면 넣으면 3초 만에 3D 솔리드 완성?! (은선·3면도 자동 복원) #Shorts",
+    "account": "horu2day@gmail.com",
+    "mode": "browser-studio",
+    "youtubeUrl": "https://www.youtube.com/watch?v=YPlVIueLKMk",
+    "visibility": "public",
+    "publishedAt": "2026-11-02T14:49:07.707Z"
+  },
+  {
+    "episodeId": "ep03",
+    "title": "[2D AutoCAD DWG → 3D 솔리드 자동 변환 원리] 평면도·정면도·측면도 3뷰 교차 정합 & 테이퍼 중공 로프트 (Bimer.uk)",
+    "account": "horu2day@gmail.com",
+    "mode": "browser-studio",
+    "youtubeUrl": "https://youtu.be/PqyCL6GiP8M",
+    "visibility": "public",
+    "publishedAt": "2026-10-24T09:26:09.652Z"
+  },
+  {
+    "episodeId": "ep05",
+    "title": "3D BIM 자르면 2D CAD 치수가 1초 만에 자동 기입! — 4방향 치수선 충돌 0건 알고리즘",
+    "account": "horu2day@gmail.com",
+    "mode": "browser-studio",
+    "youtubeUrl": "https://youtu.be/Dq_sPVqTlc0",
+    "visibility": "public",
+    "publishedAt": "2026-10-31T03:25:30.864Z"
+  },
+  {
+    "episodeId": "ep09",
+    "title": "아직도 CAD 검은 화면 캡처해서 보고서에 넣으세요? — 1초 칼선 벡터(WMF·SVG·DXF) 변환 & 선가중치 엔진",
+    "account": "horu2day@gmail.com",
+    "mode": "browser-studio",
+    "youtubeUrl": "https://youtu.be/YPlVIueLKMk",
+    "visibility": "public",
+    "publishedAt": "2026-11-01T01:02:59.666Z"
+  },
+  {
+    "episodeId": "ep04",
+    "title": "2D CAD 도면 넣으면 3초 만에 3D 솔리드가 된다고? — 은선(Hidden Line)과 3면도 교차 검증 원리 #1",
+    "account": "horu2day@gmail.com",
+    "mode": "browser-studio",
+    "youtubeUrl": "https://youtu.be/9d9FCOb4bEg",
+    "visibility": "public",
+    "publishedAt": "2026-11-02T01:00:39.532Z"
+  }
+]
